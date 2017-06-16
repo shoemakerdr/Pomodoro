@@ -14,7 +14,7 @@
         if (!!this[timer]) this[timer]--;
     };
 
-    function TimerController(model) {
+    function TimerController( model ) {
         this.model = model;
 
         this.currentTimer = 'session';
@@ -38,7 +38,7 @@
         this.timerID = timerID;
     };
 
-    TimerController.prototype.secondsToTimeString = function(sec) {
+    TimerController.prototype.secondsToTimeString = function( sec ) {
         const secString = String(sec % 60).length === 1 ?
                           `0${String(sec % 60)}` :
                           String(sec % 60);
@@ -62,7 +62,7 @@
         this.start();
     };
 
-    TimerController.prototype.setSeconds = function(timer) {
+    TimerController.prototype.setSeconds = function( timer ) {
         this.seconds = this.model[timer] * 60;
     };
 
@@ -80,6 +80,15 @@
         this.setSeconds('session');
     };
 
+    TimerController.prototype.updateModel = function ({ change, timer }) {
+        if (this.timerID === null && (change === 'decrement' && this.model[timer] > 1 || change === 'increment')) {
+            this.model[change](timer);
+            // render updated model
+            console.log(this.model[timer]);
+        }
+        else console.log(`Can't update ${timer} at the moment.`);
+
+    };
 
 
 
