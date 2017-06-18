@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         self.currentTimer = 'session';
         self.seconds = self.model[self.currentTimer] * 60;
         self.timerID = null;
+        self.isPaused = false;
 
         self.view.bindEvents('incrementSession', function() {
             self.updateModel( {change: 'increment', timer: 'session'} );
@@ -56,21 +57,28 @@ document.addEventListener('DOMContentLoaded', function() {
         if ((change === 'decrement' && this.model[timer] > 1) || change === 'increment') {
             this.model[change](timer);
             // render updated model
-            if (timer === 'session') {
+            if (timer === 'session')
                 this.view.render('updatedSession', this.model.session);
+            if (timer === 'break')
+                this.view.render('updatedBreak', this.model.break);
+            if (this.timerID === null && this.isPaused === false) {
+                this.setSeconds(this.currentTimer);
+                this.view.render('updatedTimer', this.secondsToTimeString(this.seconds));
             }
-            else this.view.render('updatedBreak', this.model.break);
         }
         else console.log(`Can't update ${timer} at the moment.`);
     };
 
     TimerController.prototype.start = function() {
         // render instead of console logs
-        this.view.render('updatedStatus', this.currentTimer.toUpperCase());
-        this.view.render('updatedTimer', this.secondsToTimeString(this.seconds));
-        let countdown = this.countdown.bind(this);
-        let timerID = setInterval(countdown, 1000);
-        this.timerID = timerID;
+        if (this.timerID === null) {
+            this.view.render('updatedStatus', this.currentTimer.toUpperCase());
+            this.view.render('updatedTimer', this.secondsToTimeString(this.seconds));
+            let countdown = this.countdown.bind(this);
+            let timerID = setInterval(countdown, 1000);
+            this.timerID = timerID;
+            this.isPaused = false;
+        }
     };
 
     TimerController.prototype.secondsToTimeString = function( sec ) {
@@ -92,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     TimerController.prototype.nextTimer = function() {
         this.pause();
+        this.isPaused = false;
         this.currentTimer = this.currentTimer === 'session' ? 'break' : 'session';
         this.setSeconds(this.currentTimer);
         this.start();
@@ -104,11 +113,13 @@ document.addEventListener('DOMContentLoaded', function() {
     TimerController.prototype.pause = function() {
         clearInterval(this.timerID);
         this.timerID = null;
+        this.isPaused = true;
     };
 
     TimerController.prototype.reset = function () {
         if (this.timerID)
             this.pause();
+        this.isPaused = false;
         this.currentTimer = 'session';
         this.setSeconds('session');
         // render new session timer
