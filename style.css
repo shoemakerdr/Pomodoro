@@ -1,0 +1,72 @@
+button {
+	/*clears button default settings*/
+	border-style: none;
+	background: none;
+}
+
+.title {
+	font-size: 4em;
+}
+
+.label {
+	font-size: 3em;
+}
+
+.labelsm {
+	font-size: 2em;
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.paddingside {
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.padsurround {
+	padding: .25em;
+}
+
+.margtop {
+	margin-top: 1.5em;
+}
+
+.marglabeltop {
+	margin-top: .5em;
+}
+
+.marglabelbottom {
+	margin-bottom: .5em;
+}
+
+.margbottom {
+	margin-bottom: 1.5em;
+}
+
+.margside {
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.divWidth {
+	width: 250px;
+}
+
+.inc_dec_side {
+	padding-left: .5em;
+	padding-right: .5em;
+}
+
+.underline {
+	border-bottom: blue solid 4px;
+}
