@@ -1,11 +1,13 @@
 button {
-	/*clears button default settings*/
+	/*clear button default settings*/
 	border-style: none;
 	background: none;
+	outline: none;
 }
 
 .title {
 	font-size: 4em;
+	text-align: center;
 }
 
 .label {
@@ -37,6 +39,10 @@ button {
 	padding: .25em;
 }
 
+.btnnopad {
+	padding: 0;
+}
+
 .margtop {
 	margin-top: 1.5em;
 }
@@ -58,10 +64,6 @@ button {
 	margin-right: 1em;
 }
 
-.divWidth {
-	width: 250px;
-}
-
 .inc_dec_side {
 	padding-left: .5em;
 	padding-right: .5em;
@@ -69,4 +71,48 @@ button {
 
 .underline {
 	border-bottom: blue solid 4px;
+}
+
+.inc_dec_side:hover {
+	background-color: #99f;
+}
+
+button:hover {
+	background-color: #c6c6ff;
+}
+
+.btnactive:active {
+	background-color: #66f;
+}
+
+@media (min-width: 540px) {
+	.divWidth {
+		width: 250px;
+	}
+}
+
+@media (max-width: 540px) {
+	.divWidth {
+		width: 150px;
+	}
+	.title {
+		font-size: 3em;
+	}
+
+	.label {
+		font-size: 2em;
+	}
+
+	.labelsm {
+		font-size: 1em;
+	}
+	.underline {
+		border-bottom: blue solid 2px;
+	}
+}
+
+@media (min-width: 400px) {
+	.labelsm {
+		font-size: 1.5em;
+	}
 }
