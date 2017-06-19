@@ -4,34 +4,36 @@
         <script src='script.js'></script>
         <link rel='stylesheet' href='style.css'>
     </header>
-    <body>
-        <header>Pomodoro Timer</header>
-        <div class='timerDiv'>
-            <div id='timerStatus'>SESSION</div>
-            <div id='timer'>25:00</div>
-            <div class='startPause'>
-                <button id='start'>START</button>
-                <button id='pause'>PAUSE</button>
+    <body class='col'>
+        <header class='title'>Pomodoro Timer</header>
+        <div class='col padsurround margbottom'>
+            <div class='label marglabeltop marglabelbottom' id='timerStatus'>SESSION</div>
+            <div class='title' id='timer'>25:00</div>
+            <div class='margtop'>
+                <button class='labelsm padsurround margside underline' id='start'>START</button>
+                <button class='labelsm padsurround margside underline' id='pause'>PAUSE</button>
             </div>
         </div>
-        <div class='sessionBreak'>
-            <div class='sessionDiv'>
-                <p>SESSION</p>
-                <button id='session'>
-                   <span id='decrementSession'>-</span>
-                   <p id='sessionLength'>25</p>
-                   <span id='incrementSession'>+</span>
+        <div class='row margtop margbottom sessionBreak'>
+            <div class='col padsurround divWidth sessionDiv'>
+                <div class='labelsm'>SESSION</div>
+                <button class='row underline' id='session'>
+                   <span class='label inc_dec_side padsurround' id='decrementSession'>-</span>
+                   <span class='label padsurround' id='sessionLength'>25</span>
+                   <span class='label inc_dec_side padsurround' id='incrementSession'>+</span>
                 </button>
             </div>
-            <div class='breakDiv'>
-                <p>BREAK</p>
-                <button id='break'>
-                   <span id='decrementBreak'>-</span>
-                   <p id='breakLength'>5</p>
-                   <span id='incrementBreak'>+</span>
+            <div class='col padsurround divWidth breakDiv'>
+                <div class='labelsm'>BREAK</div>
+                <button class='row underline' id='break'>
+                   <span class='label inc_dec_side padsurround' id='decrementBreak'>-</span>
+                   <span class='label padsurround' id='breakLength'>5</span>
+                   <span class='label inc_dec_side padsurround' id='incrementBreak'>+</span>
                 </button>
             </div>
         </div>
-        <button id='reset'>RESET</button>
+        <div class='margtop'>
+            <button class='labelsm padsurround underline' id='reset'>RESET</button>
+        </div>
     </body>
 </html>
