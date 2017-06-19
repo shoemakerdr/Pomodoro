@@ -73,16 +73,40 @@ button {
 	border-bottom: blue solid 4px;
 }
 
+.startunderline {
+	border-bottom: #008000 solid 4px;
+}
+
+.pauseunderline {
+	border-bottom: #f7e013 solid 4px;
+}
+
 .inc_dec_side:hover {
 	background-color: #99f;
 }
 
-button:hover {
+.btnhover:hover {
 	background-color: #c6c6ff;
+}
+
+.starthover:hover {
+	background-color: #70f470;
+}
+
+.pausehover:hover {
+	background-color: #fcf299;
 }
 
 .btnactive:active {
 	background-color: #66f;
+}
+
+.startactive:active {
+	background-color: #21b221;
+}
+
+.pauseactive:active {
+	background-color: #ffee59;
 }
 
 @media (min-width: 540px) {
@@ -108,6 +132,13 @@ button:hover {
 	}
 	.underline {
 		border-bottom: blue solid 2px;
+	}
+	.startunderline {
+		border-bottom: #008000 solid 2px;
+	}
+	
+	.pauseunderline {
+		border-bottom: #f7e013 solid 2px;
 	}
 }
 
