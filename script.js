@@ -82,11 +82,13 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     TimerController.prototype.secondsToTimeString = function( sec ) {
-        const secString = String(sec % 60).length === 1 ?
-                          `0${String(sec % 60)}` :
-                          String(sec % 60);
-        const minString = String(Math.floor(sec / 60));
-        return `${minString}:${secString}`;
+        function maybeZeroPad (num) {
+            return num.length === 1 ? `0${num}` : num;
+        }
+        const secString = maybeZeroPad(String(sec % 60));
+        const minString = String(Math.floor((sec % 3600) / 60));
+        const hourString = Math.floor(sec/3600) === 0 ? '' : String(Math.floor(sec/3600));
+        return (hourString) ? `${hourString}:${maybeZeroPad(minString)}:${secString}` : `${minString}:${secString}`;
     };
 
     TimerController.prototype.countdown = function() {
