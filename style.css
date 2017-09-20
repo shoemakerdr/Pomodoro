@@ -1,149 +1,171 @@
-button {
-	/*clear button default settings*/
-	border-style: none;
-	background: none;
-	outline: none;
-}
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 
-.title {
-	font-size: 4em;
-	text-align: center;
-}
-
-.label {
-	font-size: 3em;
-}
-
-.labelsm {
-	font-size: 2em;
-}
-
-.col {
+body {
+	background-color: #112230;
+	color: white;
+	font-family: 'Open Sans', Sans-Serif;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.row {
+button {
+	/*clear button default settings*/
+	border-style: none;
+	background: none;
+	outline: none;
+	font-family: 'Open Sans', Sans-Serif;
+}
+
+.app {
+	width: 85%;
+	max-width: 300px;
+}
+
+.header {
+	margin-top: 16px;
+	font-size: 32px;
+	text-align: center;
+}
+
+.timer-face {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 3px solid white;
+	border-radius: 16px;
+	margin: 16px 8px;
+	background-color: #4a4d54;
+	max-width: 300px;
+}
+
+.timer-status {
+	margin-top: 12px;
+}
+
+.timer {
+	font-size: 64px;
+	margin-bottom: 8px;
+}
+
+.inc-dec-buttons {
 	display: flex;
 	flex-direction: row;
+	justify-content: space-around;
+	padding:0;
+}
+
+.inc-dec-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.button-label {
+	text-align: center;
+}
+
+/*.between-inc-dec {
+	margin: 8px;
+}*/
+
+.inc-dec-button {
+	padding: 0;
+	border-radius: 8px;
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 	align-items: center;
 }
 
-.paddingside {
-	padding-left: 2em;
-	padding-right: 2em;
+.inc-dec {
+	display: flex;
+	flex-direction: column-reverse;
+	height: 56px;
 }
 
-.padsurround {
-	padding: .25em;
+.sign {
+	width:24px;
+	height: 28px;
+	font-size: 16px;
+	color: white;
+	background-color: #888;
+	border: .5px solid #666;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.btnnopad {
-	padding: 0;
+.inc {
+	border-top-right-radius: 8px;
 }
 
-.margtop {
-	margin-top: 1.5em;
+.dec {
+	border-bottom-right-radius: 8px;
 }
 
-.marglabeltop {
-	margin-top: .5em;
+.timer-length {
+	font-size: 36px;
+	color: #112235;
+	background-color: transparent;
+	text-align: center;
+	width: 64px;
+	height: 56px;
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.marglabelbottom {
-	margin-bottom: .5em;
+.start-stop-buttons {
+	margin: 16px 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.margbottom {
-	margin-bottom: 1.5em;
+.pause-reset-buttons {
+	margin: 8px 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
-.margside {
-	margin-left: 1em;
-	margin-right: 1em;
+.button {
+	cursor: pointer;
+	font-size: 16px;
+	padding: 8px;
+	border-radius: 4px;
+	color: white;
 }
 
-.inc_dec_side {
-	padding-left: .5em;
-	padding-right: .5em;
+.start {
+	background-color: #5cc429;
 }
 
-.underline {
-	border-bottom: blue solid 4px;
+.reset {
+	width: 112px;
+	background-color: #f4cc3d;
 }
 
-.startunderline {
-	border-bottom: #008000 solid 4px;
+.pause {
+	width: 112px;
+	background-color: #888;
 }
 
-.pauseunderline {
-	border-bottom: #f7e013 solid 4px;
+.start:active {
+	background-color: #56ba25;
 }
 
-.inc_dec_side:hover {
-	background-color: #99f;
+.reset:active  {
+	background-color: #ceac33;
 }
 
-.btnhover:hover {
-	background-color: #c6c6ff;
+.pause:active {
+	background-color: #666;
 }
 
-.starthover:hover {
-	background-color: #70f470;
-}
-
-.pausehover:hover {
-	background-color: #fcf299;
-}
-
-.btnactive:active {
-	background-color: #66f;
-}
-
-.startactive:active {
-	background-color: #21b221;
-}
-
-.pauseactive:active {
-	background-color: #ffee59;
-}
-
-@media (min-width: 540px) {
-	.divWidth {
-		width: 250px;
-	}
-}
-
-@media (max-width: 540px) {
-	.divWidth {
-		width: 150px;
-	}
-	.title {
-		font-size: 3em;
-	}
-
-	.label {
-		font-size: 2em;
-	}
-
-	.labelsm {
-		font-size: 1em;
-	}
-	.underline {
-		border-bottom: blue solid 2px;
-	}
-	.startunderline {
-		border-bottom: #008000 solid 2px;
-	}
-	
-	.pauseunderline {
-		border-bottom: #f7e013 solid 2px;
-	}
-}
-
-@media (min-width: 400px) {
-	.labelsm {
-		font-size: 1.5em;
-	}
+.sign:active {
+	background-color: #777;
 }
