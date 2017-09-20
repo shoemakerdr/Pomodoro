@@ -3,38 +3,44 @@
     <head>
         <script src='script.js'></script>
         <link rel='stylesheet' href='style.css'>
-        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <body class='col'>
-        <header class='title'>Pomodoro Timer</header>
-        <div class='col padsurround margbottom'>
-            <div class='label marglabeltop marglabelbottom' id='timerStatus'>SESSION</div>
-            <div class='title' id='timer'>25:00</div>
-            <div class='margtop'>
-                <button class='labelsm padsurround margside startunderline starthover startactive' id='start'>START</button>
-                <button class='labelsm padsurround margside pauseunderline pausehover pauseactive' id='pause'>PAUSE</button>
+    <body class=''>
+        <div class='app'>
+            <header class='header'>Pomodoro Timer</header>
+            <div class='timer-face'>
+                <div class='timer-status' id='timerStatus'>Session</div>
+                <div class='timer' id='timer'>25:00</div>
             </div>
-        </div>
-        <div class='row margtop margbottom sessionBreak'>
-            <div class='col padsurround divWidth sessionDiv'>
-                <div class='labelsm'>SESSION</div>
-                <button class='row underline btnhover btnnopad' id='session'>
-                   <span class='label inc_dec_side padsurround btnactive' id='decrementSession'>-</span>
-                   <span class='label padsurround' id='sessionLength'>25</span>
-                   <span class='label inc_dec_side padsurround btnactive' id='incrementSession'>+</span>
-                </button>
+            <div class='inc-dec-buttons'>
+                <div class='inc-dec-wrapper'>
+                    <div class='button-label'>Session</div>
+                    <button class='inc-dec-button' id='session'>
+                        <div class='timer-length' id='sessionLength'>25</div>
+                        <div class='inc-dec'>
+                            <div class='sign dec' id='decrementSession'>-</div>
+                            <div class='sign inc' id='incrementSession'>+</div>
+                        </div>
+                    </button>
+                </div>
+                <div class='inc-dec-wrapper'>
+                    <div class='button-label'>Break</div>
+                    <button class='inc-dec-button' id='break'>
+                        <div class='timer-length' id='breakLength'>5</div>
+                        <div class='inc-dec'>
+                            <div class='sign dec' id='decrementBreak'>-</div>
+                            <div class='sign inc' id='incrementBreak'>+</div>
+                        </div>
+                    </button>
+                </div>
             </div>
-            <div class='col padsurround divWidth breakDiv'>
-                <div class='labelsm'>BREAK</div>
-                <button class='row underline btnhover btnnopad' id='break'>
-                   <span class='label inc_dec_side padsurround btnactive' id='decrementBreak'>-</span>
-                   <span class='label padsurround' id='breakLength'>5</span>
-                   <span class='label inc_dec_side padsurround btnactive' id='incrementBreak'>+</span>
-                </button>
+            <div class='start-stop-buttons'>
+                <button class='start button' id='start'>Start</button>
+                <div class='pause-reset-buttons'>
+                    <button class='pause button' id='pause'>Pause</button>
+                    <button class='reset button' id='reset'>Reset</button>
+                </div>
             </div>
-        </div>
-        <div class='margtop'>
-            <button class='labelsm padsurround underline btnhover btnactive' id='reset'>RESET</button>
         </div>
     </body>
 </html>
