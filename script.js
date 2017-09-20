@@ -72,7 +72,10 @@ document.addEventListener('DOMContentLoaded', function() {
     TimerController.prototype.start = function() {
         // render instead of console logs
         if (this.timerID === null) {
-            this.view.render('updatedStatus', this.currentTimer.toUpperCase());
+            this.view.render('updatedStatus', this.currentTimer
+                                                  .split('')
+                                                  .map((letter, i) => i === 0 ? letter.toUpperCase() : letter)
+                                                  .join(''));
             this.view.render('updatedTimer', this.secondsToTimeString(this.seconds));
             let countdown = this.countdown.bind(this);
             let timerID = setInterval(countdown, 1000);
@@ -125,7 +128,10 @@ document.addEventListener('DOMContentLoaded', function() {
         this.currentTimer = 'session';
         this.setSeconds('session');
         // render new session timer
-        this.view.render('updatedStatus', this.currentTimer.toUpperCase());
+        this.view.render('updatedStatus', this.currentTimer
+                                              .split('')
+                                              .map((letter, i) => i === 0 ? letter.toUpperCase() : letter)
+                                              .join(''));
         this.view.render('updatedTimer', this.secondsToTimeString(this.seconds));
     };
 
